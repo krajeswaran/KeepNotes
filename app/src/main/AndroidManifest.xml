@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.keepnotes">
+
+  <!-- Permissions -->
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+  <!-- Application -->
+
+  <application
+      android:name=".KeepNotesApplication"
+      android:allowBackup="false"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme">
+
+    <!-- MainActivity -->
+
+    <activity
+        android:name=".ui.activity.NoteCollectionActivity"
+        android:label="@string/app_name">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <!-- NotesActivity -->
+
+    <!-- Use configChanges="orientation" for Android 2.X and configChanges="orientation|screenSize"
+    for higher versions. Review your application there are other reasons why your activity can restart
+    the lifecycle. Review also setRetainInstanceState() in Fragment class if you have to reset your
+    activity lifecycle -->
+
+
+  </application>
+
+</manifest>

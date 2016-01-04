@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/AppTheme.NoteItem">
+
+    <ImageView android:id="@+id/iv_gripper"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"
+               android:src="@android:drawable/ic_dialog_dialer"
+               android:scaleType="fitCenter"
+        />
+
+    <CheckBox android:id="@+id/cb_note_item_check"
+        />
+
+    <EditText android:id="@+id/et_note_contents"
+        />
+</LinearLayout>

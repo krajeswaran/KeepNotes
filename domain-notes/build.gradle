@@ -1,0 +1,79 @@
+/*
+ * Copyright (c) $year  Kumaresan Rajeswaran
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode System.getenv("BUILD_NUMBER") as Integer ?: rootProject.ext.versionCode
+        versionName rootProject.ext.versionName + '.' + versionCode
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaSourceCompatibility
+        targetCompatibility rootProject.ext.javaTargetCompatibility
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+    // rx
+    compile 'io.reactivex:rxjava:' + rootProject.ext.rxjavaVersion
+    compile 'io.reactivex:rxandroid:' + rootProject.ext.rxandroidVersion
+
+    // dagger2
+    compile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
+    apt 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
+    compile 'javax.annotation:javax.annotation-api:1.2'
+
+    // retrofit
+    compile 'com.squareup.retrofit:retrofit:' + rootProject.ext.retrofitVersion
+
+    // realm
+    compile 'io.realm:realm-android:' + rootProject.ext.realmVersion
+
+    // -------------- testing -------------------------------------------
+    testCompile 'junit:junit:' + rootProject.ext.junitVersion
+
+    // retrofit
+    testCompile 'com.squareup.retrofit:retrofit-mock:' + rootProject.ext.retrofitVersion
+
+    // dagger2
+    testCompile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
+    testCompile 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
+    testCompile 'javax.annotation:javax.annotation-api:1.2'
+
+    // mockito
+    testCompile 'org.mockito:mockito-core:' + rootProject.ext.mockitoVersion
+}
