@@ -1,13 +1,14 @@
 
+WIP. 
 
 TODO
 ====
-* [] User component?
-* [] Empty trash
-* [] espresso test
-* [] mockito usage
-* [] roboelectric test
-* [] travis CI
+- [ ] User component?
+- [ ] Empty trash
+- [ ] espresso test
+- [ ] mockito usage
+- [ ] roboelectric test
+- [ ] travis CI
 
 License
 =======
