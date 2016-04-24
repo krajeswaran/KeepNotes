@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MergeRootFrame"
-    tools:context="org.keepnotes.ui.activity.NoteCollectionActivity">
+    tools:context="org..ui.activity.NoteCollectionActivity">
 
     <!--<data>-->
     <!--<import type="android.view.View"/>-->
@@ -19,19 +19,27 @@
         android:id="@+id/pb_loading"
         style="@style/AppTheme.ProgressBar"/>
 
-    <fragment
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/v_note_collection"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ViewStub
         android:id="@+id/f_note"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="org.keepnotes.ui.fragment.NoteFragment"
         tools:layout="@layout/fragment_note"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/f_note_add_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/f_note"
+        app:layout_anchor="@id/v_note_collection"
         app:layout_anchorGravity="bottom|right|end"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
         android:src="@android:drawable/ic_input_add" />
 
 </android.support.design.widget.CoordinatorLayout>

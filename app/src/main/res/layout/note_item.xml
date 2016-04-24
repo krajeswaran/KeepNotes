@@ -3,15 +3,22 @@
               style="@style/AppTheme.NoteItem">
 
     <ImageView android:id="@+id/iv_gripper"
-               android:layout_alignParentLeft="true"
-               android:layout_centerVertical="true"
                android:src="@android:drawable/ic_dialog_dialer"
                android:scaleType="fitCenter"
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:visibility="gone"
         />
 
     <CheckBox android:id="@+id/cb_note_item_check"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:visibility="gone"
         />
 
     <EditText android:id="@+id/et_note_contents"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:inputType="textMultiLine"
         />
 </LinearLayout>

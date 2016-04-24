@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-      style="@style/AppTheme.RootView.Vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    style="@style/AppTheme.RootView.Vertical">
 
     <!-- Note Title -->
 
     <EditText
         android:id="@+id/et_note_title"
         android:hint="@string/tv_hint_note_title"
-        style="@style/AppTheme.Title.TvNoteTitle"/>
+        style="@style/AppTheme.TvNoteTitle"/>
 
     <!-- ListView Chapters -->
 

@@ -28,6 +28,7 @@ android {
         versionCode System.getenv("BUILD_NUMBER") as Integer ?: rootProject.ext.versionCode
         versionName rootProject.ext.versionName + '.' + versionCode
 
+        testApplicationId 'org.keepnotes'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,16 +65,27 @@ dependencies {
     compile 'io.realm:realm-android:' + rootProject.ext.realmVersion
 
     // -------------- testing -------------------------------------------
+    androidTestCompile 'junit:junit:' + rootProject.ext.junitVersion
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
 
     // retrofit
-    testCompile 'com.squareup.retrofit:retrofit-mock:' + rootProject.ext.retrofitVersion
+    androidTestCompile 'com.squareup.retrofit:retrofit-mock:' + rootProject.ext.retrofitVersion
 
     // dagger2
-    testCompile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
-    testCompile 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
-    testCompile 'javax.annotation:javax.annotation-api:1.2'
+    androidTestCompile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
+    androidTestApt 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
+//    testProvided 'com.google.dagger:dagger-compiler:2.0'
+    androidTestCompile 'javax.annotation:javax.annotation-api:1.2'
 
     // mockito
+    androidTestCompile 'org.mockito:mockito-core:' + rootProject.ext.mockitoVersion
     testCompile 'org.mockito:mockito-core:' + rootProject.ext.mockitoVersion
+    androidTestCompile 'com.google.dexmaker:dexmaker:' + rootProject.ext.dexmakerVersion
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:' + rootProject.ext.dexmakerVersion
+
+    // Set this dependency to use JUnit 4 rules
+    androidTestCompile 'com.android.support.test:rules:' + rootProject.ext.androidTestVersion
+    androidTestCompile('com.android.support.test:runner:' + rootProject.ext.androidTestVersion) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }

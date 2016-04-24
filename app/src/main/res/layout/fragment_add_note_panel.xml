@@ -16,13 +16,13 @@
         android:src="@android:drawable/ic_btn_speak_now"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        style="@style/AppTheme.AddNotePanel.Icons"/>
+        style="@style/AppTheme.Image.AddNotePanel"/>
 
     <ImageView
         android:id="@+id/iv_add_note_camera"
         android:src="@android:drawable/ic_menu_camera"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        style="@style/AppTheme.AddNotePanel.Icons"/>
+        style="@style/AppTheme.Image.AddNotePanel"/>
 
 </LinearLayout>

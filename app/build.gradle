@@ -104,25 +104,33 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:' + rootProject.ext.leakcanaryVersion
 
     // -------------- testing ------------------------------
+    // Junit
     testCompile 'junit:junit:' + rootProject.ext.junitVersion
+    androidTestCompile 'junit:junit:' + rootProject.ext.junitVersion
+
+    // leakcanary exclude
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:' + rootProject.ext.leakcanaryVersion
 
-    // retrofit
-    testCompile 'com.squareup.retrofit:retrofit-mock:' + rootProject.ext.retrofitVersion
-
     // dagger2
-    testCompile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
-    testCompile 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
-    testCompile 'javax.annotation:javax.annotation-api:1.2'
+    androidTestCompile 'com.google.dagger:dagger:' + rootProject.ext.dagger2Version
+    androidTestApt 'com.google.dagger:dagger-compiler:' + rootProject.ext.dagger2Version
+//    testProvided 'com.google.dagger:dagger-compiler:2.0'
+    androidTestCompile 'javax.annotation:javax.annotation-api:1.2'
 
     // mockito
     testCompile 'org.mockito:mockito-core:' + rootProject.ext.mockitoVersion
+    androidTestCompile 'org.mockito:mockito-core:' + rootProject.ext.mockitoVersion
+    androidTestCompile 'com.google.dexmaker:dexmaker:' + rootProject.ext.dexmakerVersion
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:' + rootProject.ext.dexmakerVersion
 
     // robolectric
     testCompile 'org.robolectric:robolectric:' + rootProject.ext.robolectricVersion
 
     // Espresso
+    androidTestCompile 'com.android.support.test:rules:' + rootProject.ext.androidTestVersion
+    androidTestCompile('com.android.support.test:runner:' + rootProject.ext.androidTestVersion) {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
     androidTestCompile 'com.android.support:support-annotations:' + rootProject.ext.supportAnnotationsVersion
-    androidTestCompile 'com.android.support.test:runner:' + rootProject.ext.espressoRunnerVersion
     androidTestCompile 'com.android.support.test.espresso:espresso-core:' + rootProject.ext.espressoCoreVersion
 }
